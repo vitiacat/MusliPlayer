@@ -254,13 +254,6 @@ class Ui(QtWidgets.QMainWindow):
     def media_changed(self, media):
         item = self._playlist[self.playlist.currentIndex()]
         self.music_duration = item.duration
-        # if 'googlevideo' in media.canonicalUrl().host():
-        #     result = ydl.extract_info(media.canonicalUrl().toString(), download=False)
-        #     self.music_duration = convert_secs(result['duration'])
-        # elif media.canonicalUrl().isLocalFile():
-        #     self.music_duration = eyed3.load(media.canonicalUrl().path()).info.time_secs
-        # else:
-        #     self.music_duration = 0
         self.playlist_table.selectRow(self.playlist.currentIndex())
         self.trackSlider.blockSignals(True)
         self.trackSlider.setMaximum(int(self.music_duration))
